@@ -35,20 +35,51 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-      title: Text('Fun Facts'),
-      actions: [
-        InkWell(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return SettingsScreen();
-            }));
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.settings),
-          ),
-        )
-      ],
-    ));
+          title: Text('Fun Facts'),
+          actions: [
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SettingsScreen();
+                }));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.settings),
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: facts.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                      child: Center(
+                          child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      facts[index],
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                    ),
+                  )));
+                },
+              ),
+            ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text("swipe left for more facts",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              ),
+            )
+          ],
+        ));
   }
 }
