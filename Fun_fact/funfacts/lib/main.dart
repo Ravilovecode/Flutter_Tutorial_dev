@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   //overriding build method
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(useMaterial3: true),
       home: MainScreen(),
     );
   }
