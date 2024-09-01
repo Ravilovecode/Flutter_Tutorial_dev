@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:funfacts/widgets/themeSwitcher.dart';
 import 'package:funfacts/providers/themeProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         value: themeProvider.isDarkModeChecked,
         onChanged: (value) {
           setState(() {
-            themeProvider.isDarkModeChecked = value;
+            themeProvider.setisDarkModeChecked(value);
           });
         },
       ),
