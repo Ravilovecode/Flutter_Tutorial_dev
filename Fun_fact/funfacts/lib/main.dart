@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:funfacts/providers/themeProvider.dart';
 import 'package:funfacts/screens/mainScreen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => Themeprovider(), child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -16,8 +19,11 @@ class _MyAppState extends State<MyApp> {
   @override
   //overriding build method
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<Themeprovider>(context);
     return MaterialApp(
-      theme: ThemeData.light(useMaterial3: true),
+      theme: themeProvider.isDarkModeChecked
+          ? ThemeData.dark(useMaterial3: true)
+          : ThemeData.light(useMaterial3: true),
       home: MainScreen(),
     );
   }
