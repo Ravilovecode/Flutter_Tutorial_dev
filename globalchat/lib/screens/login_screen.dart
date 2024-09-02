@@ -16,17 +16,21 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           title: Text("Login"),
         ),
-        body: Column(
-          children: [
-            Text("Dont have an account?"),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return SignupScreen();
-                  }));
-                },
-                child: Text("Signup now!"))
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Dont have an account?"),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return SignupScreen();
+                    }));
+                  },
+                  child: Text("Signup now!"))
+            ],
+          ),
         ));
   }
 }
