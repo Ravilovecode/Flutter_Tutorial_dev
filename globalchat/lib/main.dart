@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:globalchat/firebase_options.dart';
+import 'package:globalchat/screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,14 +28,7 @@ class _MyAppState extends State<MyApp> {
         colorSchemeSeed: Colors.deepPurple,
         fontFamily: "Poppins",
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Global Chat"),
-        ),
-        body: Center(
-          child: Text("Global Chat"),
-        ),
-      ),
+      home: SplashScreen(),
     );
   }
 }
