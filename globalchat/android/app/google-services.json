@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "80219685304",
-    "project_id": "chatapp-abbfb",
-    "storage_bucket": "chatapp-abbfb.appspot.com"
+    "project_number": "259324389078",
+    "project_id": "globalchatapp-8ac4b",
+    "storage_bucket": "globalchatapp-8ac4b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:80219685304:android:0907a9e45710e296364f4d",
+        "mobilesdk_app_id": "1:259324389078:android:f2d93f87e9470540b50b77",
         "android_client_info": {
-          "package_name": "com.example.app"
+          "package_name": "com.dummyapps.globalchat"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDyR0OsAq9WpM1JA85i8_H6PVtd-uj6ZaE"
+          "current_key": "AIzaSyCWjwNiu2fWk9VZ6TEwEECmvcRDERTIS8w"
         }
       ],
       "services": {

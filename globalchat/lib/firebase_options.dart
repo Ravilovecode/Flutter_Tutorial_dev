@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDyR0OsAq9WpM1JA85i8_H6PVtd-uj6ZaE',
-    appId: '1:80219685304:android:0907a9e45710e296364f4d',
-    messagingSenderId: '80219685304',
-    projectId: 'chatapp-abbfb',
-    storageBucket: 'chatapp-abbfb.appspot.com',
+    apiKey: 'AIzaSyCWjwNiu2fWk9VZ6TEwEECmvcRDERTIS8w',
+    appId: '1:259324389078:android:f2d93f87e9470540b50b77',
+    messagingSenderId: '259324389078',
+    projectId: 'globalchatapp-8ac4b',
+    storageBucket: 'globalchatapp-8ac4b.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBamU6LWvidpfFyVo82WYkaLjLM01j2g8k',
-    appId: '1:80219685304:ios:19c82698c5864435364f4d',
-    messagingSenderId: '80219685304',
-    projectId: 'chatapp-abbfb',
-    storageBucket: 'chatapp-abbfb.appspot.com',
+    apiKey: 'AIzaSyB4_8rJI7xuzyf7RVmZA9hlccC6uSvPi9k',
+    appId: '1:259324389078:ios:c7fb17ba0113bbdab50b77',
+    messagingSenderId: '259324389078',
+    projectId: 'globalchatapp-8ac4b',
+    storageBucket: 'globalchatapp-8ac4b.appspot.com',
     iosBundleId: 'com.dummyapps.globalchat',
   );
 }
