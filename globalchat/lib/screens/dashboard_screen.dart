@@ -22,8 +22,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: [
           Text("Welcome ${user!.email}"),
           ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
                 Navigator.pushAndRemoveUntil(context,
                     MaterialPageRoute(builder: (context) => SplashScreen()),
                     (route) {

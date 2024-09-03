@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:globalchat/controllers/login_controller.dart';
+import 'package:globalchat/controllers/signup_controller%20copy.dart';
 import 'package:globalchat/screens/dashboard_screen.dart';
 import 'package:globalchat/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,26 +19,6 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  Future<void> createAccount() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text, password: password.text);
-
-      Navigator.pushAndRemoveUntil(
-          context, MaterialPageRoute(builder: (context) => DashboardScreen()),
-          (route) {
-        return false;
-      });
-
-      print("Account created successfully");
-    } catch (e) {
-      SnackBar messageSnackBAr =
-          SnackBar(backgroundColor: Colors.red, content: Text(e.toString()));
-      ScaffoldMessenger.of(context).showSnackBar(messageSnackBAr);
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +31,12 @@ class _SignupScreenState extends State<SignupScreen> {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
+              SizedBox(height: 100),
+              Image.asset(
+                "assets/fonts/images/logo.png",
+                width: 150,
+                height: 150,
+              ),
               TextFormField(
                 controller: email,
                 validator: (value) {
@@ -75,9 +63,22 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SizedBox(height: 25),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurpleAccent,
+                  shape: const StadiumBorder(),
+                  minimumSize: const Size.fromHeight(50),
+                  side: const BorderSide(color: Colors.deepPurpleAccent),
+                  elevation: 5,
+                  shadowColor: Colors.deepPurpleAccent,
+                  textStyle: const TextStyle(fontSize: 20),
+                  foregroundColor: Colors.white,
+                ),
                 onPressed: () {
                   if (userForm.currentState!.validate()) {
-                    createAccount();
+                    SignupController.createAccount(
+                        email: email.text,
+                        password: password.text,
+                        context: context);
                   }
                 },
                 child: const Text("Create account"),
