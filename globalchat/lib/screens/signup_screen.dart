@@ -21,6 +21,8 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController name = TextEditingController();
   TextEditingController country = TextEditingController();
 
+  var isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,17 +103,28 @@ class _SignupScreenState extends State<SignupScreen> {
                           textStyle: const TextStyle(fontSize: 20),
                           foregroundColor: Colors.white,
                         ),
-                        onPressed: () {
+                        onPressed: () async {
                           if (userForm.currentState!.validate()) {
-                            SignupController.createAccount(
+                            isLoading = true;
+                            setState(() {});
+                            await SignupController.createAccount(
                                 email: email.text,
                                 password: password.text,
                                 name: name.text,
                                 country: country.text,
                                 context: context);
+                            isLoading = false;
+                            setState(() {});
                           }
                         },
-                        child: const Text("Create account"),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: isLoading
+                              ? CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : Text("Create account"),
+                        ),
                       )
                     ],
                   ),
