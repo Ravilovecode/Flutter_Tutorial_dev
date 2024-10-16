@@ -7,8 +7,9 @@ from models.user import User
 from pydantic_schemas.user_create import UserCreate
 from database import get_db
 from sqlalchemy.orm import Session
-
+import jwt
 from pydantic_schemas.user_login import UserLogin
+
 
 router = APIRouter()
 @router.post("/signup", status_code=201)
@@ -45,7 +46,10 @@ def login_user(user: UserLogin, db: Session = Depends(get_db)):
    if not is_match:
       raise HTTPException(status_code=400, detail="Incorrect password")
    
-   return {"id": user_db.id, "name": user_db.name, "email": user_db.email}
+   # Generate JWT token
+   token = jwt.encode({"id": user_db.id}, "secret", algorithm="HS256")
+
+   
+   return {"id": user_db.id, "name": user_db.name, "email": user_db.email, "token": token}
          
    
-   pass
